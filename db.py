@@ -13,7 +13,7 @@ def init_db():
     conn = connect()
     c = conn.cursor()
 
-    c.execute('DROP TABLE users')
+    c.execute('DROP TABLE IF EXISTS users')
     c.execute('CREATE TABLE users (username text not null, password text not null)')
     c.execute("INSERT INTO users values ('firstuser', 'firstpassword'), ('jo', 'jospassword'), ('ed', 'edspassword')")
     conn.commit()
